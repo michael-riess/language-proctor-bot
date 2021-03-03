@@ -1,7 +1,7 @@
 import os
 import discord
 from keep_alive import keep_alive
-from langcodes import *
+from langcodes import Language, standardize_tag
 from channel import *
 from language_processing import google
 from locales import locales
