@@ -30,7 +30,8 @@ def get_channel_lang(channel):
 # Removes channel lanaguage association
 # ========================================================
 def remove_channel_lang(channel):
-  del db[channel]
+  if channel_has_lang(channel):
+    del db[channel]
 
 # ========================================================
 # Determine if channel has language
