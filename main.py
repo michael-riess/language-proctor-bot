@@ -20,7 +20,7 @@ async def process_command(message):
       old_code = get_channel_lang(message.channel.id)
       try:
         remove_channel_lang(message.channel.id)
-        await say(message.channel, "I am no longer proctoring [language].", [locales.langauges[old_code]])
+        await say(message.channel, "I am no longer enforcing [language]-only use for this channel.", [locales.languages[old_code]])
       except:
         print('Error occured while removing channel language')
 
@@ -29,7 +29,7 @@ async def process_command(message):
     else:
       code = standardize_tag(code)
       set_channel_lang(message.channel.id, code)
-      await say(message.channel, "I am now proctoring [language]", [locales.languages[code]])
+      await say(message.channel, "I am now enforcing [language]-only use for this channel.", [locales.languages[code]])
   else:
     await say(message.channel, "I'm sorry, I didn't recognize that command.")
 
