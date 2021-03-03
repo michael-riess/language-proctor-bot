@@ -12,26 +12,26 @@ client = discord.Client()
 # Executes whenever bot goes live in server
 # ========================================================
 async def process_command(message):
-  text = message.content.split('$proctor-bot ', 1)[1]
-  if text.startswith('set-language'):
-    code = text.split('set-language ', 1)[1]
+    text = message.content.split('$proctor-bot ', 1)[1]
+    if text.startswith('set-language'):
+        code = text.split('set-language ', 1)[1]
 
-    if code == 'none':
-      old_code = get_channel_lang(message.channel.id)
-      try:
-        remove_channel_lang(message.channel.id)
-        await say(message.channel, "I am no longer enforcing [language]-only use for this channel.", [locales.languages[old_code]])
-      except:
-        print('Error occured while removing channel language')
+        if code == 'none':
+            old_code = get_channel_lang(message.channel.id)
+            try:
+                remove_channel_lang(message.channel.id)
+                await say(message.channel, "I am no longer enforcing [language]-only use for this channel.", [locales.languages[old_code]])
+            except:
+                print('Error occurred while removing channel language')
 
-    elif code == None or Language.get(code).is_valid() == False:
-      await say(message.channel, "I'm sorry, that doesn't seem to be a valid language.")
+        elif code == None or Language.get(code).is_valid() == False:
+            await say(message.channel, "I'm sorry, that doesn't seem to be a valid language.")
+        else:
+            code = standardize_tag(code)
+            set_channel_lang(message.channel.id, code)
+            await say(message.channel, "I am now enforcing [language]-only use for this channel.", [locales.languages[code]])
     else:
-      code = standardize_tag(code)
-      set_channel_lang(message.channel.id, code)
-      await say(message.channel, "I am now enforcing [language]-only use for this channel.", [locales.languages[code]])
-  else:
-    await say(message.channel, "I'm sorry, I didn't recognize that command.")
+        await say(message.channel, "I'm sorry, I didn't recognize that command.")
 
 # ========================================================
 # Analyzes message for language misuses, and responds accordingly
@@ -42,12 +42,12 @@ async def enforce_language(message):
     
     # ignore short messages with low confidence
     if len(message.content) <= 10 or len(message.content.split()) < 3:
-      return
-      # TODO: improve response for short/low confidence messages
+        return
+        # TODO: improve response for short/low confidence messages
 
     # check if message language matches channel language
     if code != 'und' and code != get_channel_lang(message.channel.id):
-      await say(message.channel, "Please only use [language] in this channel. Thank you!", [locales.languages[get_channel_lang(message.channel.id)]]) 
+        await say(message.channel, "Please only use [language] in this channel. Thank you!", [locales.languages[get_channel_lang(message.channel.id)]]) 
 
 # --------------------------------------------------------
 # handlers
@@ -58,24 +58,24 @@ async def enforce_language(message):
 # ========================================================
 @client.event
 async def on_ready():
-  print('We have logged in as {0.user}'.format(client))
+    print('We have logged in as {0.user}'.format(client))
 
 # ========================================================
 # Executes whenever a message is sent in discord server
 # ========================================================
 @client.event
 async def on_message(message):
-  # ignore bot's own messages
-  if message.author == client.user:
-    return
+    # ignore bot's own messages
+    if message.author == client.user:
+        return
 
-  # handle bot command
-  elif message.content.startswith('$proctor-bot'):
-    await process_command(message)
+    # handle bot command
+    elif message.content.startswith('$proctor-bot'):
+        await process_command(message)
 
-  # detect langage
-  elif channel_has_lang(message.channel.id):
-    await enforce_language(message)
+    # detect langage
+    elif channel_has_lang(message.channel.id):
+        await enforce_language(message)
 
 # --------------------------------------------------------
 # init

@@ -9,18 +9,18 @@ app = Flask('')
 
 @app.route('/')
 def home():
-  return "Proctor bot is live!"
+    return "Proctor bot is live!"
 
 
 # ========================================================
 # Initialize server
 # ========================================================
 def run():
-  app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080)
 
 # ========================================================
 # Initialize server thread
 # ========================================================
 def keep_alive():
-  thread = Thread(target=run)
-  thread.start()
+    thread = Thread(target=run)
+    thread.start()
