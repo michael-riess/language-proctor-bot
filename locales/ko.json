@@ -1,0 +1,10 @@
+{
+  "English": "영어",
+  "Korean": "한국어",
+  "Spanish": "스페인어",
+  "I'm sorry, that doesn't seem to be a valid language.": "죄송하지만, 그 언어는 인식 불가능합니다.",
+  "I am now enforcing [language]-only use for this channel.": "이 방에서는 {} 외 다른 언어 사용을 제한합니다.",
+  "Please only use [language] in this channel. Thank you!": "이 방에서는 {}만 사용해 주세요.",
+  "I am no longer enforcing [language]-only use for this channel.": "{} 외 다른 언어 사용 제한이 해제되었습니다.",
+  "I'm sorry, I didn't recognize that command.": "죄송합니다, 그 명령어는 인식할 수 없습니다."
+}
