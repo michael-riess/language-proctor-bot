@@ -75,7 +75,7 @@ async def on_message(message):
 
   # detect langage
   elif channel_has_lang(message.channel.id):
-    enforce_language(message)
+    await enforce_language(message)
 
 # --------------------------------------------------------
 # init
