@@ -1,10 +1,10 @@
 {
-  "English": "English",
-  "Korean": "Korean",
-  "Spanish": "Spanish",
-  "I'm sorry, that doesn't seem to be a valid language.": "I'm sorry, that doesn't seem to be a valid language.",
-  "I am now enforcing [language]-only use for this channel.": "I am now proctoring {}-only use for this channel.",
-  "Please only use [language] in this channel. Thank you!": "Please only use {} in this channel. Thank you!",
-  "I am no longer enforcing [language]-only use for this channel.": "I am no longer enforcing {}}-only use for this channel.",
-  "I'm sorry, I didn't recognize that command.": "I'm sorry, I didn't recognize that command."
+    "English": "Inglés",
+    "Korean": "Coreano",
+    "Spanish": "Español",
+    "I'm sorry, that doesn't seem to be a valid language.": "Perdón pero eso no parece ser un lenguaje válido.",
+    "I am now enforcing [language]-only use for this channel.": "A partir de este momento solamente se puede usar {} en este canal.",
+    "Please only use [language] in this channel. Thank you!": "Por favor utilice solamente {} en este canal. Gracias.",
+    "I am no longer enforcing [language]-only use for this channel.": "Ya no es obligatorio hablar solo {} en este canal.",
+    "I'm sorry, I didn't recognize that command.": "Perdón no pude reconocer ese comando."
 }
