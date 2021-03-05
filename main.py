@@ -9,7 +9,7 @@ from locales import locales
 client = discord.Client()
 
 # ========================================================
-# Executes whenever bot goes live in server
+# Processes and executes bot commands
 # ========================================================
 async def process_command(message):
     text = message.content.split('$proctor-bot ', 1)[1]
